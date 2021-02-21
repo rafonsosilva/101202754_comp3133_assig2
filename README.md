@@ -1,5 +1,6 @@
 ## Graphql queries and mutations
 
+```
 mutation addHotel{
   addHotel(
     hotel_name: "Shelton Inn Hotel 2", 
@@ -93,3 +94,4 @@ query getUsers{
     username
   }
 }
+```
