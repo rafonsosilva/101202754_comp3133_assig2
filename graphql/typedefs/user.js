@@ -10,6 +10,7 @@ exports.typeDefs = gql`
 
   type Query{
     getUsers: [User]
+    getUserById: User
     getUserByUsername: User
   }
 
@@ -18,6 +19,6 @@ exports.typeDefs = gql`
       username: String!
       password: String!
       email: String!
-    )
+    ): User
   }
 `

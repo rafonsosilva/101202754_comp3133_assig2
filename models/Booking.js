@@ -27,5 +27,5 @@ const bookingSchema = new Schema({
   }
 })
 
-var Hotel = mongoose.model('Booking', bookingSchema)
+var Booking = mongoose.model('Booking', bookingSchema)
 module.exports = {Booking, bookingSchema}

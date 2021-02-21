@@ -9,4 +9,18 @@ exports.typeDefs = gql `
     booking_start: String!
     booking_end: String!
   }
+
+  type Query{
+    getBookings: [Booking]
+  }
+
+  type Mutation{
+    addBooking(
+      hotel_id: ID!
+      user_id: ID!
+      booking_date: String!
+      booking_start: String!
+      booking_end: String!
+    ): Booking
+  }
 `
