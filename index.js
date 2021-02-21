@@ -1,9 +1,11 @@
 const express = require('express')
 const mongoose = require('mongoose')
-const schema = require('./graphql/typedefs/hotel')
 const bodyParser = require('body-parser')
 const cors = require('cors')
 const { ApolloServer } = require('apollo-server-express')
+
+const TypeDefs = require('./graphql/typedefs/typedefs');
+const Resolvers = require('./graphql/resolvers/resolvers');
 
 const dotenv = require('dotenv')
 dotenv.config()
@@ -23,8 +25,8 @@ connect.then((db) => {
 })
 
 const server = new ApolloServer({
-  typeDefs: schema.typeDefs,
-  resolvers: schema.resolvers
+  typeDefs: TypeDefs.typeDefs,
+  resolvers: Resolvers.resolvers
 })
 
 const app = express()

@@ -1,7 +1,6 @@
 const mongoose = require('mongoose')
 
-const Schema = mongoose.Schema
-const hotelSchema = new Schema({
+const HotelSchema = new mongoose.Schema({
   hotel_name: {
     type: String,
     required: [true, 'Please enter hotel name'],
@@ -29,5 +28,5 @@ const hotelSchema = new Schema({
   },
 })
 
-var Hotel = mongoose.model('Hotel', hotelSchema)
-module.exports = {Hotel, hotelSchema}
+var Hotel = mongoose.model('Hotel', HotelSchema)
+module.exports = {Hotel}
