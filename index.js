@@ -1,16 +1,23 @@
 const express = require('express')
 const mongoose = require('mongoose')
-const schema = require('./schema')
+const schema = require('./graphql/typedefs/hotel')
 const bodyParser = require('body-parser')
 const cors = require('cors')
-
 const { ApolloServer } = require('apollo-server-express')
 
-const url = 'mongodb://localhost:27017/airbnb-db'
+const dotenv = require('dotenv')
+dotenv.config()
 
-const connect = mongoose.connect(url, { useNewUrlParser: true })
+const url = process.env.MONGODB_URL
+
+const connect = mongoose.connect(url,
+  {
+    useNewUrlParser: true,
+    useUnifiedTopology: true
+  })
+
 connect.then((db) => {
-  console.log('Connected correctly to server!')
+  console.log('Successfully connected to the server')
 }, (err) => {
     console.log(err)
 })
@@ -21,15 +28,9 @@ const server = new ApolloServer({
 })
 
 const app = express()
-
 app.use(bodyParser.json())
-
 app.use('*', cors())
-
 server.applyMiddleware({ app })
-
-const port = 3001
-
-app.listen(port, () => 
-  console.log(`Server ready at http://localhost:${port}${server.graphqlPath}`)
+app.listen({ port: process.env.PORT }, () => 
+  console.log(`Server ready at http://localhost:${process.env.PORT}${server.graphqlPath}`)
 )

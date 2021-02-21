@@ -1,15 +1,11 @@
 const mongoose = require('mongoose')
 
 const Schema = mongoose.Schema
-const airbnbSchema = new Schema({
-  hotel_id: {
-    type: Number,
-    required: true,
-    unique: true
-  },
+const hotelSchema = new Schema({
   hotel_name: {
     type: String,
-    required: true
+    required: [true, 'Please enter hotel name'],
+    trim: true
   },
   street: {
     type: String,
@@ -31,11 +27,7 @@ const airbnbSchema = new Schema({
     type: String,
     required: true
   },
-  user_id: {
-    type: Number,
-    required: true
-  }
 })
 
-var Airbnb = mongoose.model('Airbnb', airbnbSchema)
-module.exports = {Airbnb, airbnbSchema}
+var Hotel = mongoose.model('Hotel', hotelSchema)
+module.exports = {Hotel, hotelSchema}
