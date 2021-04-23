@@ -1,0 +1,24 @@
+table {
+  width: 100%;
+}
+
+.mat-form-field {
+  font-size: 14px;
+  width: 100%;
+}
+
+.hotel-table{
+  margin: 3rem;
+}
+
+.filter-field {
+  background: rgb(44, 44, 44);
+  padding: 1rem;
+  box-sizing: border-box;
+}
+
+.hotel-name:hover {
+  background: lightseagreen;
+  box-shadow: lightsteelblue;
+  cursor: pointer;
+}

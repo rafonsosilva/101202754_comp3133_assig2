@@ -9,7 +9,7 @@ exports.resolvers = {
       return Hotel.find()
     },
     getHotelById: (parent, args) => {
-      return Hotel.findById(args.id)
+      return Hotel.findOne({'_id': args.id })
     },
     getHotelByName: (parent, args) => {
       return Hotel.findOne({'hotel_name':args.hotel_name})
@@ -23,10 +23,10 @@ exports.resolvers = {
       return User.find()
     },
     getUserById: (parent, args) => {
-      return User.findById(args.id)
+      return User.findOne({'_id': args.id })
     },
     getUserByUsername: (parent, args) => {
-      return User.findOne(args.username)
+      return User.findOne({'username':args.username})
     },
 
     //Booking queries

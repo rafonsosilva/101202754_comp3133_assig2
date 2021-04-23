@@ -1,7 +1,7 @@
 {
-  "name": "101202754_comp3133_assig1",
+  "name": "101202754_comp3133_assig2",
   "version": "1.0.0",
-  "description": "Comp3133 Assignment 1: AirBnB GraphQL API",
+  "description": "Comp3133 Assignment 2: FairBnB GraphQL API",
   "main": "index.js",
   "scripts": {
     "tsc": "tsc",
